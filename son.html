@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://st2.myideasoft.com/shop/cr/25/myassets/products/099/e_min.png?revision=1545655573">
+    <title>POISSON TABLE</title>
+
+    <style>
+        body {
+            background-color: #E0E0E0
+        }
+
+        #myTable {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100;
+        }
+
+        #myTable td {
+            border: 1px solid blue;
+            padding: 5px;
+            text-align: center;
+            position: relative;
+            font-size: small;
+        }
+
+        #myTable th {
+            padding: 5px;
+            text-align: middle;
+            background-color: #E0E0E0;
+            color: black;
+        }
+
+        #myTable tr:nth-child(even) {
+            background-color: #e4f5f8;
+        }
+
+        #myTable td:hover {
+            background-color: #9decfa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h1 id="title">POISSON TABLE</h1><br>
+        <table id="myTable">           
+        </table>
+        <br>
+        <!--<form oninput="tableFromInput()">
+            Rows: <input type="number" id="rows" style="width: 50px" value="9">
+        </form>-->
+    </center>
+
+    <script>
+
+        function makeRows(m, n) {
+
+            const L = [0.5, 1, 1.5, 2, 2.5, 3];
+            /*row ve column değerlerini input olarak alacaktım ona göre de L arrayi değişecekti tabiki
+            ama column değişikliğinde tabloda hatalar oluşuyordu ve bunları çözemedim o yüzden değişiklik
+            yapılamayan sabit bir tablo yazdırdım. row değişikliğinde olması gereken kodları comment olarak
+            sakladım.*/
+
+            let row = "<th></th>";
+            const p = [];
+            for (let λ of L) 
+                p.push(Math.exp(-λ));
+            
+            for (let j = 0; j <= L.length - 1; j++)
+                row += "<th>" +"λ = " + L[j] + "</th>";
+
+            let text = "<tr>" + row + "</tr>";
+            
+            for (let i = 0; i <= m - 1; i++) {
+                row = "<th>" + "x = " + i + "</th>";
+                
+                if (i != 0) 
+                    for (let a = 0; a < p.length; a++) 
+                        p[a] = p[a] * L[a] / i;
+                // ilk satırda olmadığımızda olasılıkları yukarıdaki for içindeki ifade ile hesapladım.
+                
+                for (let j = 0; j <= n; j++) 
+                    row += "<td>" + p[j].toFixed(4) + "</td>";
+                // i.satır j.sütundaki ifadeyi toFixed ile kısıtlayarak yazdırdım
+
+                text += "<tr>" + row + "</tr>";
+            }
+
+            let t = text.length + " chars";
+            console.log("makeRows: " + m + "x" + n + " " + t);
+            myTable.innerHTML = text; out.innerText = t;
+        }
+        /*
+        function tableFromInput() {
+            let m = rows.value;
+            makeRows(m, 5);
+        }*/
+
+        title.innerText = document.title;
+        makeRows(9, 5);
+
+    </script>
+
+</body>
