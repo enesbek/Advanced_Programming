@@ -39,7 +39,7 @@
 "use strict";
 // JavaScript comment
 function check() {
-  fetch(url.value).then(r => resp.innerText = r.ok).catch(e => resp.innerText = e)
+  fetch(url.value).then(r => resp.innerText = "ok").catch(e => resp.innerText = e)
 }
 function init() {
   plat.innerText = navigator.platform
