@@ -171,7 +171,8 @@
             myReport(ExamScheduleOut, "Student: " + student);
             for (let c of student.list){
                 c.toUpperCase();
-                myReport(ExamScheduleOut,"Lesson: " + c + "/ Time: " + crsMap.get(c).time + "\nDate: " + crsMap.get(c).date)
+                myReport(ExamScheduleOut,"Lesson: " + c + "/ Time: " + 
+                         crsMap.get(c).time + "\nDate: " + crsMap.get(c).date)
             }
         }
         function myReport(area, msg, id, list) {
