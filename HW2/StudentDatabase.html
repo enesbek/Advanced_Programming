@@ -98,9 +98,11 @@
     <script>
         "use strict";
         function Test(){
+            TestOut.innerHTML = "";
             let id = document.getElementById("TestText").value;
             //let student = stdMap.get(id);
-            let counter1 = 0, counter2 = 0;
+            let counter1 = 0, counter2 = 0, time1, time2;
+            let keys = [...stdMap.keys()]
             let t0 = performance.now();
             for(let i = 0; i < 10000; i++){
                 if(stdMap.has(id.toString()))
@@ -108,8 +110,20 @@
                 id++;
             }
             let t1 = performance.now();
+            time1 = t1 - t0;
+            t0 = performance.now();
+            for(let i = 0; i < 10000; i++){
+                if(keys.includes(id.toString()))
+                    counter2++;
+                id++;
+            }
+            t1 = performance.now();
+            time2 = t1 - t0;
+
             myReport(TestOut, "stdMap find this: " + counter1);
-            myReport(TestOut, "stdMap measure time: " + (t1 - t0).toFixed(4) + "ms");
+            myReport(TestOut, "keys find this: " + counter2);
+            myReport(TestOut, "stdMap measure time: " + time1.toFixed(4) + "ms");
+            myReport(TestOut, "keys measure time: " + time2.toFixed(4) + "ms");
         }
         function Extra(){
             ExtraOut.innerText = "";
