@@ -120,10 +120,10 @@
             t1 = performance.now();
             time2 = t1 - t0;
 
-            myReport(TestOut, "stdMap find this: " + counter1);
-            myReport(TestOut, "keys find this: " + counter2);
-            myReport(TestOut, "stdMap measure time: " + time1.toFixed(4) + "ms");
-            myReport(TestOut, "keys measure time: " + time2.toFixed(4) + "ms");
+            myReport(TestOut, "stdMap find " + counter1 + " id");
+            myReport(TestOut, "keys find " + counter2 + " id");
+            myReport(TestOut, "stdMap time: " + time1.toFixed(4) + "ms");
+            myReport(TestOut, "keys time: " + time2.toFixed(4) + "ms");
         }
         function Extra(){
             ExtraOut.innerText = "";
@@ -293,7 +293,7 @@
         title.innerText = document.title
         sample.innerText = Course + "\n" + readCourses + "\n" + findBest + "\n" + ExamSchedule
         + "\n" +StudentList + "\n" + ExamRoom + "\n" + TotalNumberOfCourses + "\n" + Extra
-        + "\n" + myReport;
+        + "\n" + myReport + "\n" + Test;
         readStudents(); readCourses();
     </script>
 </body>
