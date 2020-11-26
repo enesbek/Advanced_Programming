@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://enesbek.github.io/Advanced_Programming/e.jpg">
+    <title>Event listeners</title>
+
+  <style> /* CSS comment */
+    body { max-width: 440px; }
+    #url { width: 190px; }
+    span, #url { color: blue; }
+  </style>
+</head>
+
+<body>   <!-- HTML comment: Modify all items marked xxx -->
+
+  <h2 id=title title="Modify xxx"></h2>
+
+  <h3>Battery Status</h3>
+  <p>Status: <span id=charging>??</span></p> 
+  <p>Battery Level: <span id=level>??</span></p>
+  <h3>Online Status</h3>
+  <span id = "online">??</span>
+  <h3>Keyboard</h3>
+  <span id = "key">??</span>
+  <hr />
+  <b>Sample code</b>
+<pre id=sample>This text is not shown. Why?</pre>
+
+<hr />
+
+<script>
+"use strict";
+// JavaScript comment
+function check() {
+    fetch(url.value).then(r => 
+      resp.innerText = r.ok? 'OK' : 'Not found'
+    ).catch(e => resp.innerText = e)
+}
+function init() {
+    navigator.getBattery().then(battery => {
+        battery.onchargingchange = () => charging.innerText = (battery.charging ? "Charging" : "Discharging")
+        
+        battery.onlevelchange = () => level.innerText = 100 * battery.level + '%'
+      })
+    ononline = () => online.innerText = "Online"
+    onoffline = () => online.innerText = "Offline"
+    onkeydown = (event) => key.innerText = event.key
+    onkeyup = (event) => key.innerText = event.key
+    check()
+}
+    init();
+    title.innerText = document.title;
+    sample.innerText = init+'\n'+check;
+    init();
+</script>
+
+</body>
+</html>
