@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enes BEK</title>
+    <style>
+        #rod {
+            position: relative;
+            margin-top: 50px;
+            margin-left: 200px;
+            width: 2px;
+            height: 170px;
+            border-radius: 5px;
+            transform-origin: 50% 0%;
+            transform: rotate(60deg);
+            background-color: green;
+        }
+
+        #pivot {
+            position: absolute;
+            top: -5px;
+            left: -3px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: black;
+        }
+
+        #ball {
+            position: absolute;
+            bottom: -25px;
+            left: -25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgb(119, 0, 255);
+        }
+
+    </style>
+</head>
+
+<body>
+    <button class="play">Start</button>
+    <button class="pause">Stop</button>
+
+    <div id="rod">
+        <div id="pivot"></div>
+        <div id="ball"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+    <script>
+        let playPause = anime({
+            targets: '#rod',
+            rotate: [75, -75],
+            duration: 2000,
+            easing: 'easeInOutSine',
+            direction: 'alternate',
+            loop: true
+        });
+        document.querySelector('.play').onclick = playPause.play;
+        document.querySelector('.pause').onclick = playPause.pause;
+    </script>
+</body>
+
+</html>
