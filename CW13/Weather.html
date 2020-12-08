@@ -108,6 +108,7 @@
         }
         // Location
         var lat, lon;  //global values
+        /*
         async function askLocation() {
             let name = 'geolocation'
             let result = await navigator.permissions.query({ name })
@@ -129,11 +130,11 @@
             console.log("getCurrentPosition")
             lat = p.coords.latitude; lon = p.coords.longitude;
             askWeather()
-        }
+        }*/
         var accessKey;
         async function askWeather() {
-            var lat = document.getElementById("lat").value;
-            var lon = document.getElementById("lon").value;
+            lat = document.getElementById("lat").value;
+            lon = document.getElementById("lon").value;
             console.log(lat, lon);
             const U = "https://api.openweathermap.org/data/2.5/weather?"
             let url = U + "lat=" + lat + "&lon=" + lon + "&APPID=" + accessKey;
