@@ -116,6 +116,7 @@ async function makeMenu() {
         let n = x.name.length   //remove '.js'
         NAMES.push(x.name.substring(0, n-3))
     }
+    NAMES.push('enes.js')
     menu.innerHTML = '<option disabled selected>Options:'
         + NAMES.join('<option>')
 }
