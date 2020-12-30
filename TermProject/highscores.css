@@ -1,0 +1,22 @@
+body {
+    color: black;
+}
+#exa { 
+    animation: cssAnimation 0s 5s forwards;
+    opacity: 1;
+  }
+
+@keyframes cssAnimation {
+    to   { opacity: 0; }
+}
+
+#highScoresList {
+    list-style: none;
+    margin-bottom: 3rem;
+}
+
+.high-score {
+    background-color: gray;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
