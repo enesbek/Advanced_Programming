@@ -85,7 +85,7 @@ getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign('https://github.com/enesbek/Advanced_Programming/blob/main/TermProject/end.js')
+        return window.location.assign("https://enesbek.github.io/Advanced_Programming/TermProject/end.html")
     }
 
     questionCounter++
